@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     val CITY: String = "Barueri,BR"
     val API: String =  "06c921750b9a82d8f5d1294e1586276f" // Use API key
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun doInBackground(vararg params: String?): String? {
-
             var response:String?
             try{
                 response = URL("https://api.openweathermap.org/data/2.5/weather?q=$CITY&units=metric&appid=$API").readText()
