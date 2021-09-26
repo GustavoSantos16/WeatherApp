@@ -9,11 +9,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import org.json.JSONObject
 import java.net.URL
+import java.nio.charset.Charset
 import java.text.SimpleDateFormat
 import java.util.*
+
 class MainActivity : AppCompatActivity() {
 
-    val CITY: String = "dhaka,bd"
+    val CITY: String = "Barueri,BR"
     val API: String =  "06c921750b9a82d8f5d1294e1586276f" // Use API key
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,9 +34,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun doInBackground(vararg params: String?): String? {
+
             var response:String?
             try{
-                response = URL("https://api.openweathermap.org/data/2.5/weather?q=$CITY&units=metric&appid=$API").toString()
+                response = URL("https://api.openweathermap.org/data/2.5/weather?q=$CITY&units=metric&appid=$API").readText()
             }catch (e: Exception){
                 response = null
             }
